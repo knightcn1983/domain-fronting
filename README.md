@@ -14,6 +14,14 @@
 --host-resolver-rules="MAP hello.wikivoyage.org 208.80.153.224, MAP upload.wikimedia.org 103.102.166.240"
 ```
 
+------
+  
+### 支持域前置的网站列表
+- Google搜索
+```
+--host-rules="MAP *.google.com www.gstatic.cn, MAP *.gstatic.com www.gstatic.cn, MAP *.googleapis.com www.gstatic.cn, MAP *.googleusercontent.com www.gstatic.cn"
+--host-resolver-rules="MAP www.gstatic.cn 106.75.251.36"
+```
 
 
 
