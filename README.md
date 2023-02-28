@@ -14,8 +14,16 @@
 --host-resolver-rules="MAP hello.wikivoyage.org 208.80.153.224, MAP upload.wikimedia.org 103.102.166.240"
 ```
 
+
+[df]: https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%89%8D%E7%BD%AE
+[mitm]: https://github.com/mitmproxy/mitmproxy
+[df-py]: https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/domain_fronting.py
+[wiki]: https://zh.wikipedia.org/
+
 ------
-  
+
+
+
 ### 支持域前置的网站列表
 - Google搜索
 ```
@@ -23,9 +31,17 @@
 --host-resolver-rules="MAP www.gstatic.cn 106.75.251.36"
 ```
 
+- Github
+```
+--host-rules="MAP github.com octocaptcha.com" 
+--host-resolver-rules="MAP octocaptcha.com 20.205.243.166"
+```
 
 
-[df]: https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%89%8D%E7%BD%AE
-[mitm]: https://github.com/mitmproxy/mitmproxy
-[df-py]: https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/domain_fronting.py
-[wiki]: https://zh.wikipedia.org/
+
+
+
+
+
+
+
