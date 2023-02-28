@@ -3,9 +3,18 @@
 有两种方法可以使用域前置：
 
 1. 使用chromium内核的浏览器，比如Google浏览器，微软的edge，brave等
-2. 借助[mitmproxy][mitm]和[域前置脚本][df-py]，
+2. 借助[mitmproxy][mitm]和[域前置脚本][df-py]
+
+第一种方法比较简单，只需要在运行浏览器时加入两个参数。本repo提供被封网站的某个没有被封的域名和IP。
+以维基百科为例，虽然主域名 `wikipedia.org` 被封了，但是 `hello.wikivoyage.org` 并没有。
+所有运行上述浏览器时加入以下两个参数就可以访问[维基百科][wiki]了。
+```
+--host-rules="MAP *.wikipedia.org hello.wikivoyage.org, MAP commons.wikimedia.org hello.wikivoyage.org" --host-resolver-rules="MAP upload.wikimedia.org 103.102.166.240, MAP hello.wikivoyage.org 208.80.153.224"
+```
+
 
 
 [df]: https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%89%8D%E7%BD%AE
 [mitm]: https://github.com/mitmproxy/mitmproxy
 [df-py]: https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/domain_fronting.py
+[wiki]: https://zh.wikipedia.org/
