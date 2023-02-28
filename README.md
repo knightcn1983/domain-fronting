@@ -8,9 +8,12 @@
 第一种方法比较简单，只需要在运行浏览器时加入两个参数。本repo提供被封网站的某个没有被封的域名和IP。
 以维基百科为例，虽然主域名 `wikipedia.org` 被封了，但是 `hello.wikivoyage.org` 并没有。
 所有运行上述浏览器时加入以下两个参数就可以访问[维基百科][wiki]了。
+
 ```
---host-rules="MAP *.wikipedia.org hello.wikivoyage.org, MAP commons.wikimedia.org hello.wikivoyage.org" --host-resolver-rules="MAP upload.wikimedia.org 103.102.166.240, MAP hello.wikivoyage.org 208.80.153.224"
+--host-rules="MAP *.wikipedia.org hello.wikivoyage.org, MAP wikimedia.org hello.wikivoyage.org, MAP *.wikimedia.org hello.wikivoyage.org, EXCLUDE upload.wikimedia.org"
+--host-resolver-rules="MAP hello.wikivoyage.org 208.80.153.224, MAP upload.wikimedia.org 103.102.166.240"
 ```
+
 
 
 
