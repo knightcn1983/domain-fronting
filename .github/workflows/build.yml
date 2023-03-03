@@ -30,7 +30,8 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -a -m "generate files"
+          git add domain_fronting.json host_rules.md hosts.txt
+          git commit -m "generate files"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
