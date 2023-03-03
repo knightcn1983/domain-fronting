@@ -1,0 +1,40 @@
+{
+  "mappings": [
+    {
+      "patterns": [
+        "upload.wikimedia.org"
+      ],
+      "server": "upload.wikimedia.org",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "*.wikipedia.org",
+        "wikimedia.org",
+        "*.wikimedia.org"
+      ],
+      "server": "wikivoyage.org",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "*.google.com",
+        "*.gstatic.com",
+        "*.googleapis.com",
+        "*.googleusercontent.com",
+        "*.ytimg.com",
+        "*.youtube.com",
+        "*.ggpht.com"
+      ],
+      "server": "www.gstatic.cn",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "github.com"
+      ],
+      "server": "octocaptcha.com",
+      "port": 443
+    }
+  ]
+}
