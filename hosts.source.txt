@@ -1,0 +1,10 @@
+=== 维基百科
+upload.wikimedia.org 103.102.166.240 443 upload.wikimedia.org
+wikivoyage.org 208.80.153.224 443 *.wikipedia.org wikimedia.org *.wikimedia.org 
+
+=== google
+www.gstatic.cn 106.75.251.36 443 *.google.com *.gstatic.com *.googleapis.com *.googleusercontent.com *.ytimg.com *.youtube.com *.ggpht.com
+
+=== github
+octocaptcha.com 20.205.243.166 443 github.com
+
