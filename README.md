@@ -37,7 +37,7 @@ chrome.exe --host-rules="<rules>" --host-resolver-rules="<rules>"
 ```
 ./mitmdump -s ./domain_fronting.py --set domainfrontingfile=./domain_fronting.json --set connection_strategy=lazy --no-http2 -p 8080
 ```
-5. 打开 http://mitm.it 按照提示安装CA证书到浏览器或者系统
+5. 配置浏览器使用 http 代理并打开 http://mitm.it 按照提示安装CA证书到浏览器或者系统
 
 
 
