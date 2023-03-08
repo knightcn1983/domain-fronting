@@ -31,7 +31,8 @@
     },
     {
       "patterns": [
-        "github.com"
+        "github.com",
+        "gist.github.com"
       ],
       "server": "octocaptcha.com",
       "port": 443
