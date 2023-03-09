@@ -19,7 +19,7 @@ cat <<EOF > $tmp_df_file
     "mappings": [
 EOF
 
-    egrep -v "^#|^$|===" $src_file > $tmp_file
+    egrep -v "^#|^ *$|===" $src_file > $tmp_file
     number_of_lines=$(cat $tmp_file|wc -l)
     line_number=0
     comma=","
@@ -58,7 +58,7 @@ update: $(date)
 repo: https://github.com/rabbit2123/domain-fronting
 EOF
 
-    egrep -v "^#|^$" $src_file > $tmp_file
+    egrep -v "^#|^ *$" $src_file > $tmp_file
     while IFS='' read -r line; do
         echo $line |grep '===' >/dev/null
         if [ "$?" -eq 0 ]; then
@@ -90,7 +90,7 @@ cat <<EOF > $host_rules_file
 相同参数的内容合并在一起，可以让多个网站使用域前置。
 
 EOF
-    egrep -v "^#|^$" $src_file > $tmp_file
+    egrep -v "^#|^ *$" $src_file > $tmp_file
     number_of_lines=$(cat $tmp_file|wc -l)
     line_number=0
     while IFS='' read -r line; do
