@@ -8,3 +8,11 @@ www.gstatic.cn 106.75.251.36 443 *.google.com *.gstatic.com *.googleapis.com *.g
 === github
 octocaptcha.com 20.205.243.166 443 github.com gist.github.com
 
+=== duckduckgo
+duck.com 20.43.161.105 443 duckduckgo.com *.duckduckgo.com
+       
+=== twitter
+# blog.twtrinc.com shopify.twitterintegration.com
+tweetdeck.com 104.244.45.4 443 twitter.com *.twitter.com abs.twimg.com pbs.twimg.com
+twimg.com 146.75.116.159 443 abs-0.twimg.com
+test.twimg.com 192.229.220.133 443 video.twimg.com
