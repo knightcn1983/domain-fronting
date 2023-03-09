@@ -18,3 +18,13 @@
 --host-rules="MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443" --host-resolver-rules="MAP octocaptcha.com 20.205.243.166"
 ```
 
+- duckduckgo
+```
+--host-rules="MAP duckduckgo.com duck.com:443, MAP *.duckduckgo.com duck.com:443" --host-resolver-rules="MAP duck.com 20.43.161.105"
+```
+
+- twitter
+```
+--host-rules="MAP twitter.com tweetdeck.com:443, MAP *.twitter.com tweetdeck.com:443, MAP abs.twimg.com tweetdeck.com:443, MAP pbs.twimg.com tweetdeck.com:443, MAP abs-0.twimg.com twimg.com:443, MAP video.twimg.com test.twimg.com:443" --host-resolver-rules="MAP tweetdeck.com 104.244.45.4, MAP twimg.com 146.75.116.159, MAP test.twimg.com 192.229.220.133"
+```
+

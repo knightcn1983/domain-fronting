@@ -36,6 +36,38 @@
       ],
       "server": "octocaptcha.com",
       "port": 443
+    },
+    {
+      "patterns": [
+        "duckduckgo.com",
+        "*.duckduckgo.com"
+      ],
+      "server": "duck.com",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "twitter.com",
+        "*.twitter.com",
+        "abs.twimg.com",
+        "pbs.twimg.com"
+      ],
+      "server": "tweetdeck.com",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "abs-0.twimg.com"
+      ],
+      "server": "twimg.com",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "video.twimg.com"
+      ],
+      "server": "test.twimg.com",
+      "port": 443
     }
   ]
 }

@@ -1,4 +1,4 @@
-update: Wed Mar  8 01:15:41 UTC 2023
+update: Thu Mar  9 07:58:53 UTC 2023
 repo: https://github.com/rabbit2123/domain-fronting
 
 # === 维基百科
@@ -10,3 +10,11 @@ repo: https://github.com/rabbit2123/domain-fronting
 
 # === github
 20.205.243.166 octocaptcha.com
+
+# === duckduckgo
+20.43.161.105 duck.com
+
+# === twitter
+104.244.45.4 tweetdeck.com
+146.75.116.159 twimg.com
+192.229.220.133 test.twimg.com
