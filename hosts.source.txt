@@ -6,7 +6,7 @@ wikivoyage.org 208.80.153.224 443 *.wikipedia.org wikimedia.org *.wikimedia.org
 www.gstatic.cn 106.75.251.36 443 *.google.com *.gstatic.com *.googleapis.com *.googleusercontent.com *.ytimg.com *.youtube.com *.ggpht.com
 
 === github
-octocaptcha.com 20.205.243.166 443 github.com gist.github.com
+octocaptcha.com 20.27.177.113 443 github.com gist.github.com
 
 === duckduckgo
 duck.com 20.43.161.105 443 duckduckgo.com *.duckduckgo.com
