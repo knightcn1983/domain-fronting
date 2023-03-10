@@ -15,7 +15,7 @@
 
 - github
 ```
---host-rules="MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443" --host-resolver-rules="MAP octocaptcha.com 20.205.243.166"
+--host-rules="MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443" --host-resolver-rules="MAP octocaptcha.com 20.27.177.113"
 ```
 
 - duckduckgo
