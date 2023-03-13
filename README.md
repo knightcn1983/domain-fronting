@@ -60,10 +60,16 @@ www.gstatic.cn 106.75.251.36 443 *.google.com *.gstatic.com
 每行的后面可以有多个域名。
 
 
+### Credit
+---
+`domain_fronting.py` 由 mitmproxy 的 [domain_fronting.py][mitm-df] 修改而来。
+
+
+
 [df]: https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%89%8D%E7%BD%AE
 [mitm]: https://github.com/mitmproxy/mitmproxy#installation
 [df-py]: https://github.com/rabbit2123/domain-fronting/blob/main/domain_fronting.py
 [wiki]: https://zh.wikipedia.org/
 [rules]: https://github.com/rabbit2123/domain-fronting/blob/main/host_rules.md
 [source]: https://github.com/rabbit2123/domain-fronting/blob/main/hosts.source.txt
-
+[mitm-df]: https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/domain_fronting.py
