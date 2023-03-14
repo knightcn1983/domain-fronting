@@ -40,7 +40,7 @@
 3. 复制 `hosts.txt` 内容添加到系统 `hosts` 文件
 4. 打开命令行并切换到 `domain_fronting.json` 所在目录，然后运行
 ```
-mitmdump.exe -s ./domain_fronting.py --set domainfrontingfile=./domain_fronting.json --set connection_strategy=lazy --no-http2 -p 8080
+mitmdump.exe -s ./domain_fronting.py --set domainfrontingfile=./domain_fronting.json --set connection_strategy=lazy --set stream_large_bodies=1 --no-http2 -p 8080
 ```
 5. 配置浏览器或系统使用 http 代理
 6. 在浏览器打开 http://mitm.it 按照提示安装 CA 证书，否则会报证书错误。
