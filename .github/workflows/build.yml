@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add domain_fronting.json host_rules.md hosts.txt
+          git add domain_fronting.json host_rules.md hosts.txt df.py
           git commit -m "generate files"
 
       - name: Push changes
