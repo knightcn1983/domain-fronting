@@ -1,12 +1,14 @@
 #!/bin/bash
 
 
-src_file="hosts.source.txt"
-tmp_file="${src_file}.tmp"
+hosts_source_file="hosts.source.txt"
 hosts_file="hosts.txt"
+tmp_file="hosts-source.tmp"
 
-df_file="domain_fronting.json"
-tmp_df_file="${df_file}.tmp"
+df_json_file="domain_fronting.json"
+tmp_df_json_file="${df_json_file}.tmp"
+df_py_file="df.py"
+df_py_file_template="_df.py"
 
 host_resolver_rules=""
 host_rules=""
@@ -14,12 +16,12 @@ host_rules_file="host_rules.md"
 
 
 generate_df_file() {
-cat <<EOF > $tmp_df_file
+cat <<EOF > $tmp_df_json_file
 {
     "mappings": [
 EOF
 
-    egrep -v "^#|^ *$|===" $src_file > $tmp_file
+    egrep -v "^#|^ *$|===" $hosts_source_file > $tmp_file
     number_of_lines=$(cat $tmp_file|wc -l)
     line_number=0
     comma=","
@@ -33,7 +35,7 @@ EOF
         line_array=($line)
         patterns=$(echo ${line_array[@]}|awk 'BEGIN{OFS=","} {for (i=4;i<=NF;i++) printf "%s%s", "\"" $i "\"", (i<NF ? OFS : "")}')
 
-cat <<EOF >> $tmp_df_file
+cat <<EOF >> $tmp_df_json_file
         {
             "patterns": [${patterns}],
             "server": "${line_array[0]}",
@@ -43,13 +45,13 @@ EOF
 
     done < "$tmp_file"
 
-cat <<EOF >> $tmp_df_file
+cat <<EOF >> $tmp_df_json_file
     ]
 }
 EOF
 
-    cat $tmp_df_file |jq . >$df_file
-    rm $tmp_df_file
+    cat $tmp_df_json_file |jq . > $df_json_file
+    rm $tmp_df_json_file
 }
 
 generate_hosts_file() {
@@ -58,7 +60,7 @@ update: $(date)
 repo: https://github.com/rabbit2123/domain-fronting
 EOF
 
-    egrep -v "^#|^ *$" $src_file > $tmp_file
+    egrep -v "^#|^ *$" $hosts_source_file > $tmp_file
     while IFS='' read -r line; do
         echo $line |grep '===' >/dev/null
         if [ "$?" -eq 0 ]; then
@@ -90,7 +92,7 @@ cat <<EOF > $host_rules_file
 相同参数的内容合并在一起，可以让多个网站使用域前置。
 
 EOF
-    egrep -v "^#|^ *$" $src_file > $tmp_file
+    egrep -v "^#|^ *$" $hosts_source_file > $tmp_file
     number_of_lines=$(cat $tmp_file|wc -l)
     line_number=0
     while IFS='' read -r line; do
@@ -124,8 +126,25 @@ EOF
     rm $tmp_file
 }
 
+generate_df_py_file() {
+    cat <<EOF > $df_py_file
+#本文件由 $df_py_file_template, $df_json_file 合成，df_hosts 内容与 $df_json_file 相同。
+# 
+# Usage:
+#    mitmdump -s ./df.py
+#
+
+EOF
+
+    echo -n "df_hosts = " >> $df_py_file
+    cat $df_json_file >> $df_py_file
+    echo "" >> $df_py_file
+    echo "" >> $df_py_file
+    cat $df_py_file_template >> $df_py_file
+}
 
 generate_df_file
 generate_hosts_file
 generate_host_rules_file
+generate_df_py_file
 
