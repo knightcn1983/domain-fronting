@@ -77,7 +77,7 @@ class HttpsDomainFronting:
             return
         mapping = self._resolve_addresses(target)
         if mapping is not None:
-            logging.info(f"\n domain fronting for: {target}")
+            logging.info(f"domain fronting for: {target}")
             flow.request.host = mapping.server
             flow.request.port = mapping.port
             flow.request.host_header = target
