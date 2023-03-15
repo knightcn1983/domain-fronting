@@ -13,12 +13,12 @@
 有两种方法可以使用域前置：
 
 1. 使用 chromium 内核的浏览器，比如 Google 浏览器，微软的 edge，brave等，缺点是只能在浏览器上使用
-2. 借助 [mitmproxy][mitm] 和[域前置脚本][df-py]
+2. 借助 [mitmproxy][mitm] 和[域前置脚本][df-py]，支持 http2
 
 
 ### 第一种方法
 ---
-这方法比较简单，只需要在运行浏览器时加入两个参数。如 Windows 上 Google 浏览器：
+这方法比较简单，只要在启动浏览器时加入两个参数。如 Windows 上 Google 浏览器：
 ```
 "path/to/chrome.exe" --host-rules="<rules>" --host-resolver-rules="<rules>"
 ```
@@ -33,14 +33,14 @@
 
 ### 第二种方法
 ---
-按照以下步骤操作完成后，http 代理监听在 127.0.0.1:8080。
+按照以下步骤操作完成后，http 代理监听在 127.0.0.1:8080，加参数 `-p PORT` 可修改端口。 
 
 1. 下载安装 [mitmproxy][mitm-dl]
-2. 下载这三个文件 `domain_fronting.json` `domain_fronting.py` `hosts.txt` 到同一个目录
+2. 下载这两个文件 `df.py` `hosts.txt`
 3. 复制 `hosts.txt` 内容添加到系统 `hosts` 文件
-4. 打开命令行并切换到 `domain_fronting.json` 所在目录，然后运行
+4. 打开命令行并切换到 `df.py` 所在目录，然后运行
 ```
-mitmdump.exe -s ./domain_fronting.py --set domainfrontingfile=./domain_fronting.json --set connection_strategy=lazy --set stream_large_bodies=1 --no-http2 -p 8080
+mitmdump.exe -s ./df.py
 ```
 5. 配置浏览器或系统使用 http 代理
 6. 在浏览器打开 http://mitm.it 按照提示安装 CA 证书，否则会报证书错误。
@@ -60,21 +60,21 @@ sni域名 IP 端口 被封的域名...
 比如
 ```
 === google
-www.gstatic.cn 106.75.251.36 443 *.google.com *.gstatic.com
+www.gstatic.cn 106.75.251.36 443 google.com *.google.com *.gstatic.com
 ```
 每行的后面可以有多个域名。
 
 
 ## Credit
 ---
-`domain_fronting.py` 由 mitmproxy 的 [domain_fronting.py][mitm-df] 修改而来。
+`df.py` 由 mitmproxy 的 [domain_fronting.py][mitm-df] 修改而来。
 
 
 
 [wiki-df]: https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%89%8D%E7%BD%AE
 [mitm]: https://github.com/mitmproxy/mitmproxy
 [mitm-dl]: https://mitmproxy.org/
-[df-py]: https://github.com/rabbit2123/domain-fronting/blob/main/domain_fronting.py
+[df-py]: https://github.com/rabbit2123/domain-fronting/blob/main/df.py
 [rules]: https://github.com/rabbit2123/domain-fronting/blob/main/host_rules.md
 [source]: https://github.com/rabbit2123/domain-fronting/blob/main/hosts.source.txt
 [mitm-df]: https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/domain_fronting.py
