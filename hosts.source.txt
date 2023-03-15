@@ -10,7 +10,7 @@ octocaptcha.com 20.27.177.113 443 github.com gist.github.com
 
 === duckduckgo
 duck.com 20.43.161.105 443 duckduckgo.com *.duckduckgo.com
-       
+
 === twitter
 # blog.twtrinc.com shopify.twitterintegration.com
 tweetdeck.com 104.244.45.4 443 twitter.com *.twitter.com abs.twimg.com pbs.twimg.com
