@@ -28,6 +28,7 @@ cat <<EOF > $RULES_FILE
 （本文档由脚本生成）
 
 相同参数的内容合并在一起，可以让多个网站使用域前置。
+
 如果部署并设置了 cloudflare workers，proxy hosts 可通过其转发。
 
 EOF
@@ -77,6 +78,7 @@ _write_rule() {
     # 把网站 rules 写入文件，同时清零
 
     if [ "$HOST_RULES" ]; then
+        echo "" >> $RULES_FILE	
         echo "domain fronting:" >> $RULES_FILE
         echo '```' >> $RULES_FILE
         for host in $FRONT_HOSTS; do
@@ -93,6 +95,7 @@ EOF
     fi
 
     if [ "$PROXY_HOSTS" ]; then
+        echo "" >> $RULES_FILE
         echo "proxy hosts:" >> $RULES_FILE
         echo '```' >> $RULES_FILE
 	for host in $PROXY_HOSTS; do
