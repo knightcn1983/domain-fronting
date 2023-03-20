@@ -81,6 +81,7 @@ SERVER = "your-workers-domain.com"
 ```
 每行的后面可以有多个域名。
 
+修改之后，可自行执行 `bash build.sh` 生成四个文件：`df.py`，`domain_fronting.json`，`host_rules.md`，`hosts.txt`。
 
 ## Credit
 ---
