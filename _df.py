@@ -65,22 +65,53 @@ class HttpsDomainFronting:
             help="set connection strategy to lazy",
         )
 
+    def _is_proxy_host(self, host: str) -> bool:
+        if host in proxy_hosts:
+            return True
+
+        index = 0
+        while True:
+            index = host.find(".", index)
+            if index == -1:
+                break
+            super_domain = host[(index + 1) :]
+            if super_domain in proxy_hosts:
+                return True
+            index += 1
+
+        return False
+
     def responseheaders(self, flow: HTTPFlow) -> None:
         flow.response.stream = True
 
     def request(self, flow: HTTPFlow) -> None:
-        if not flow.request.scheme == "https":
-            return
         # We use the host header to dispatch the request:
         target = flow.request.host_header
         if target is None:
             return
-        mapping = self._resolve_addresses(target)
-        if mapping is not None:
-            logging.info(f"domain fronting for: {target}")
-            flow.request.host = mapping.server
-            flow.request.port = mapping.port
-            flow.request.host_header = target
+
+        scheme = flow.request.scheme
+        if scheme == "https":
+            # try domain fronting first
+            mapping = self._resolve_addresses(target)
+            if mapping is not None:
+                logging.info(f"domain fronting for: {target}")
+                flow.request.host = mapping.server
+                flow.request.port = mapping.port
+                flow.request.host_header = target
+                return
+
+        if SERVER is not None and self._is_proxy_host(target):
+            if scheme == "https":
+                url_prefix = "/https/"
+            else:
+                url_prefix = "/http/"
+            logging.info(f"cloud proxy for: {target} {scheme}")
+            url = f"https://{SERVER}:{PORT}{url_prefix}{target}{flow.request.path}"
+            flow.request.url = url
+
+        else:
+            logging.info(f"direct connect for: {target}")
 
 
 addons = [HttpsDomainFronting()]

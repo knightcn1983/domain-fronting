@@ -1,18 +1,24 @@
 === 维基百科
-upload.wikimedia.org 103.102.166.240 443 upload.wikimedia.org
-wikivoyage.org 208.80.153.224 443 *.wikipedia.org wikimedia.org *.wikimedia.org 
+-front upload.wikimedia.org 103.102.166.240 443 upload.wikimedia.org
+-front wikivoyage.org 208.80.153.224 443 *.wikipedia.org wikimedia.org *.wikimedia.org 
+
 
 === google
-www.gstatic.cn 106.75.251.36 443 *.google.com *.gstatic.com *.googleapis.com *.googleusercontent.com *.ytimg.com *.youtube.com *.ggpht.com
+-front www.gstatic.cn 106.75.251.36 443 google.com youtube.com *.google.com *.gstatic.com *.googleapis.com *.googleusercontent.com *.ytimg.com *.youtube.com *.ggpht.com
+
+-proxy googlevideo.com
+
 
 === github
-octocaptcha.com 20.27.177.113 443 github.com gist.github.com
+-front octocaptcha.com 20.27.177.113 443 github.com gist.github.com
+
 
 === duckduckgo
-duck.com 20.43.161.105 443 duckduckgo.com *.duckduckgo.com
+-front duck.com 20.43.161.105 443 duckduckgo.com *.duckduckgo.com
+
 
 === twitter
 # blog.twtrinc.com shopify.twitterintegration.com
-tweetdeck.com 104.244.45.4 443 twitter.com *.twitter.com abs.twimg.com pbs.twimg.com
-twimg.com 146.75.116.159 443 abs-0.twimg.com
-test.twimg.com 192.229.220.133 443 video.twimg.com
+-front tweetdeck.com 104.244.45.4 443 twitter.com *.twitter.com abs.twimg.com pbs.twimg.com
+-front twimg.com 146.75.116.159 443 abs-0.twimg.com
+-front test.twimg.com 192.229.220.133 443 video.twimg.com
