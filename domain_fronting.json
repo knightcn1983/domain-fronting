@@ -18,6 +18,8 @@
     },
     {
       "patterns": [
+        "google.com",
+        "youtube.com",
         "*.google.com",
         "*.gstatic.com",
         "*.googleapis.com",
