@@ -1,0 +1,10 @@
+on:
+  schedule:
+    - cron: '12 8 * * 2,5'
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test domain fronting
+        run: bash test.sh
