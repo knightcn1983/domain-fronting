@@ -46,7 +46,8 @@ mitmdump.exe -s ./df.py
 6. 在浏览器打开 http://mitm.it 按照提示安装 CA 证书，否则会报证书错误。
 
 
-#### Cloudflare Workers(可选)
+#### Cloudflare Workers/Pages(可选)
+---
 有些网站域名不可使用域前置访问，正好用 Workers 转发，请先[部署 Workers][workers]，
 然后在 `df.py` 设置 workers 的域名。
 ```
@@ -55,7 +56,7 @@ mitmdump.exe -s ./df.py
 SERVER = "your-workers-domain.com"
 ```
 
-如果网站既能用域前置访问又能通过 workers 转发，则优先使用域前置。
+如果网站既能用域前置又能通过 Workers 转发，则优先使用域前置。
 
 
 ## Contribute
