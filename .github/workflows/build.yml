@@ -26,6 +26,9 @@ jobs:
         with:
           fetch-depth: 0
           
+      - name: test
+        run: bash test.sh
+        
       - name: generate files
         run: bash build.sh
         
