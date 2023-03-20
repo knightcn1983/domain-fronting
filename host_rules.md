@@ -2,9 +2,11 @@
 （本文档由脚本生成）
 
 相同参数的内容合并在一起，可以让多个网站使用域前置。
+
 如果部署并设置了 cloudflare workers，proxy hosts 可通过其转发。
 
 - 维基百科
+
 domain fronting:
 ```
 upload.wikimedia.org
@@ -17,6 +19,7 @@ wikimedia.org
 ```
 
 - google
+
 domain fronting:
 ```
 google.com
@@ -33,12 +36,14 @@ youtube.com
 --host-rules="MAP google.com www.gstatic.cn:443, MAP youtube.com www.gstatic.cn:443, MAP *.google.com www.gstatic.cn:443, MAP *.gstatic.com www.gstatic.cn:443, MAP *.googleapis.com www.gstatic.cn:443, MAP *.googleusercontent.com www.gstatic.cn:443, MAP *.ytimg.com www.gstatic.cn:443, MAP *.youtube.com www.gstatic.cn:443, MAP *.ggpht.com www.gstatic.cn:443" --host-resolver-rules="MAP www.gstatic.cn 106.75.251.36"
 ```
 
+
 proxy hosts:
 ```
 googlevideo.com
 ```
 
 - github
+
 domain fronting:
 ```
 github.com
@@ -49,6 +54,7 @@ gist.github.com
 ```
 
 - duckduckgo
+
 domain fronting:
 ```
 duckduckgo.com
@@ -59,16 +65,22 @@ duckduckgo.com
 ```
 
 - twitter
+
 domain fronting:
 ```
 twitter.com
 *.twitter.com
 abs.twimg.com
 pbs.twimg.com
-abs-0.twimg.com
 video.twimg.com
 ```
 ```
---host-rules="MAP twitter.com tweetdeck.com:443, MAP *.twitter.com tweetdeck.com:443, MAP abs.twimg.com tweetdeck.com:443, MAP pbs.twimg.com tweetdeck.com:443, MAP abs-0.twimg.com twimg.com:443, MAP video.twimg.com test.twimg.com:443" --host-resolver-rules="MAP tweetdeck.com 104.244.45.4, MAP twimg.com 146.75.116.159, MAP test.twimg.com 192.229.220.133"
+--host-rules="MAP twitter.com tweetdeck.com:443, MAP *.twitter.com tweetdeck.com:443, MAP abs.twimg.com tweetdeck.com:443, MAP pbs.twimg.com tweetdeck.com:443, MAP video.twimg.com test.twimg.com:443" --host-resolver-rules="MAP tweetdeck.com 104.244.45.4, MAP test.twimg.com 192.229.220.133"
+```
+
+
+proxy hosts:
+```
+twimg.com
 ```
 

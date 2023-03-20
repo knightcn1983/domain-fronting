@@ -59,13 +59,6 @@
     },
     {
       "patterns": [
-        "abs-0.twimg.com"
-      ],
-      "server": "twimg.com",
-      "port": 443
-    },
-    {
-      "patterns": [
         "video.twimg.com"
       ],
       "server": "test.twimg.com",

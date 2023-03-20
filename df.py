@@ -72,13 +72,6 @@ df_hosts = {
     },
     {
       "patterns": [
-        "abs-0.twimg.com"
-      ],
-      "server": "twimg.com",
-      "port": 443
-    },
-    {
-      "patterns": [
         "video.twimg.com"
       ],
       "server": "test.twimg.com",
@@ -89,6 +82,7 @@ df_hosts = {
 
 proxy_hosts = [
     "googlevideo.com",
+    "twimg.com",
 ]
 
 
