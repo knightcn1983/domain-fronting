@@ -52,22 +52,28 @@ mitmdump.exe -s ./df.py
 欢迎加入其他支持域前置的网站。只要修改 [hosts.source.txt][source] 即可。
 此文件的格式：
 ```
-# 以#开头的是注释，以及空行会被忽略
-# 以=== 开头为网站名称
-# 每行包含有四个字段，sni域名是没被封的可用于sni连接的域名
-sni域名 IP 端口 被封的域名...
+# 以 # 开头的是注释，以及空行会被忽略
+# 以 === 开头为网站名称
+# 以 -front 开头的行作为 domain fronting，星号开头的域名包含所有子域名
+# 以 -proxy 开头的行，域名可通过 cloudflare workers 转发，包含所有子域名
+
+=== 网站名称
+-front sni域名 IP 端口 域名...
+-proxy 域名...
 ```
+
 比如
 ```
 === google
-www.gstatic.cn 106.75.251.36 443 google.com *.google.com *.gstatic.com
+-front www.gstatic.cn 106.75.251.36 443 google.com *.google.com *.gstatic.com
+-proxy googlevideo.com
 ```
 每行的后面可以有多个域名。
 
 
 ## Credit
 ---
-`df.py` 由 mitmproxy 的 [domain_fronting.py][mitm-df] 修改而来。
+`_df.py` 由 mitmproxy 的 [domain_fronting.py][mitm-df] 修改而来。
 
 
 
