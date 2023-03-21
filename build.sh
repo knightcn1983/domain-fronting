@@ -13,6 +13,9 @@ JSON_FILE="domain_fronting.json"
 HOST_RULES=""
 HOST_RESOLVER_RULES=""
 RULES_FILE="host_rules.md"
+ALL_HOST_RULES=""
+ALL_HOST_RESOLVER_RULES=""
+DF_ALL_FILE="df-all.txt"
 
 DF_FILE="df.py"
 DF_FILE_TEMPLATE="_df.py"
@@ -51,6 +54,11 @@ cat <<EOF >> $tmp_json_file
 EOF
     cat $tmp_json_file |jq . > $JSON_FILE
     rm $tmp_json_file
+}
+
+_write_df_all_file() {
+    echo -n "--host-rules=\"${ALL_HOST_RULES%, }\"" > $DF_ALL_FILE
+    echo " --host-resolver-rules=\"${ALL_HOST_RESOLVER_RULES%, }\"" >> $DF_ALL_FILE
 }
 
 _write_host() {
@@ -92,6 +100,8 @@ $(echo '```')
 $(echo '```')
 
 EOF
+        ALL_HOST_RULES+="$HOST_RULES"
+        ALL_HOST_RESOLVER_RULES+="$HOST_RESOLVER_RULES"
     fi
 
     if [ "$PROXY_HOSTS" ]; then
@@ -212,6 +222,7 @@ generate_files() {
 
     _json_file_end
     _write_df_file
+    _write_df_all_file
     rm $TMP_PROXY_HOSTS_FILE
 }
 
