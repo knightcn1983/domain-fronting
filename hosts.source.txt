@@ -23,3 +23,8 @@
 -front test.twimg.com 192.229.220.133 443 video.twimg.com
 
 -proxy twimg.com
+
+
+=== pixiv
+-front fanbox.cc 210.140.131.221 443 pixiv.net *.pixiv.net
+-front pximg.net 210.140.139.136 443 *.pximg.net
