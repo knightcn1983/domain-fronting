@@ -8,6 +8,7 @@ on:
       - 'main'
     paths:
       - 'hosts.source.txt'
+      - 'build.sh'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
