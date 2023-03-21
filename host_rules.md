@@ -84,3 +84,15 @@ proxy hosts:
 twimg.com
 ```
 
+- pixiv
+
+domain fronting:
+```
+pixiv.net
+*.pixiv.net
+*.pximg.net
+```
+```
+--host-rules="MAP pixiv.net fanbox.cc:443, MAP *.pixiv.net fanbox.cc:443, MAP *.pximg.net pximg.net:443" --host-resolver-rules="MAP fanbox.cc 210.140.131.221, MAP pximg.net 210.140.139.136"
+```
+

@@ -15,3 +15,7 @@
 # === twitter
 104.244.45.4 tweetdeck.com
 192.229.220.133 test.twimg.com
+
+# === pixiv
+210.140.131.221 fanbox.cc
+210.140.139.136 pximg.net

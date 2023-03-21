@@ -76,6 +76,21 @@ df_hosts = {
       ],
       "server": "test.twimg.com",
       "port": 443
+    },
+    {
+      "patterns": [
+        "pixiv.net",
+        "*.pixiv.net"
+      ],
+      "server": "fanbox.cc",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "*.pximg.net"
+      ],
+      "server": "pximg.net",
+      "port": 443
     }
   ]
 }
