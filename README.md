@@ -29,7 +29,8 @@
 微软的 edge 还需到浏览器的`设置->系统与性能`把启动增强关闭，否则参数不生效。
 
 
-[host_rules.md][rules] 有 `<rules>` 的内容。
+[host_rules.md][rules] 有单个网站的 `<rules>`，[df-all.txt][df-all] 合成了所有网站的 `<rules>`。
+
 
 ### 第二种方法
 ---
@@ -98,3 +99,4 @@ SERVER = "your-workers-domain.com"
 [source]: https://github.com/rabbit2123/domain-fronting/blob/main/hosts.source.txt
 [mitm-df]: https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/domain_fronting.py
 [workers]: https://github.com/rabbit2123/domain-fronting/tree/main/cloud/workers
+[df-all]: https://github.com/rabbit2123/domain-fronting/blob/main/df-all.txt
