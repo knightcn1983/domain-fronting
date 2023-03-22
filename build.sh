@@ -27,7 +27,7 @@ TMP_PROXY_HOSTS_FILE=""
 
 _rules_file_header() {
 cat <<EOF > $RULES_FILE
-### 支持的网站列表
+## 支持的网站列表
 （本文档由脚本生成）
 
 相同参数的内容合并在一起，可以让多个网站使用域前置。
@@ -87,7 +87,7 @@ _write_rule() {
 
     if [ "$HOST_RULES" ]; then
         echo "" >> $RULES_FILE	
-        echo "domain fronting:" >> $RULES_FILE
+        echo "- domain fronting:" >> $RULES_FILE
         echo '```' >> $RULES_FILE
         for host in $FRONT_HOSTS; do
             echo "$host" >> $RULES_FILE
@@ -106,7 +106,7 @@ EOF
 
     if [ "$PROXY_HOSTS" ]; then
         echo "" >> $RULES_FILE
-        echo "proxy hosts:" >> $RULES_FILE
+        echo "- proxy hosts:" >> $RULES_FILE
         echo '```' >> $RULES_FILE
 	for host in $PROXY_HOSTS; do
             echo "$host" >> $RULES_FILE
@@ -195,7 +195,7 @@ generate_files() {
             # 把上一个网站 rules 写入文件
             _write_rule
 	    # 写入网站名称
-            echo "-${line//=/}" >> $RULES_FILE
+            echo "###${line//=/}" >> $RULES_FILE
             continue
         fi
 
