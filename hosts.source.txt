@@ -11,6 +11,7 @@
 
 === github
 -front octocaptcha.com 20.27.177.113 443 github.com gist.github.com
+-front github.githubassets.com 185.199.110.154 443 *.githubusercontent.com
 
 
 === duckduckgo
