@@ -22,3 +22,7 @@
 
 # === quora
 107.20.115.65 qr.ae
+
+# === flickr
+34.231.89.51 flic.kr
+13.35.66.99 combo.staticflickr.com

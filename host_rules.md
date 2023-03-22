@@ -107,3 +107,15 @@ quora.com
 --host-rules="MAP quora.com qr.ae:443, MAP *.quora.com qr.ae:443" --host-resolver-rules="MAP qr.ae 107.20.115.65"
 ```
 
+- flickr
+
+domain fronting:
+```
+identity.flickr.com
+flickr.com
+*.flickr.com
+```
+```
+--host-rules="MAP identity.flickr.com flic.kr:443, MAP flickr.com combo.staticflickr.com:443, MAP *.flickr.com combo.staticflickr.com:443" --host-resolver-rules="MAP flic.kr 34.231.89.51, MAP combo.staticflickr.com 13.35.66.99"
+```
+

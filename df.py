@@ -99,6 +99,21 @@ df_hosts = {
       ],
       "server": "qr.ae",
       "port": 443
+    },
+    {
+      "patterns": [
+        "identity.flickr.com"
+      ],
+      "server": "flic.kr",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "flickr.com",
+        "*.flickr.com"
+      ],
+      "server": "combo.staticflickr.com",
+      "port": 443
     }
   ]
 }
