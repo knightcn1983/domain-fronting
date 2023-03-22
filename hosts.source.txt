@@ -32,3 +32,8 @@
 
 === quora
 -front qr.ae 107.20.115.65 443 quora.com *.quora.com
+
+
+=== flickr
+-front flic.kr 34.231.89.51 443 identity.flickr.com
+-front combo.staticflickr.com 13.35.66.99 443 flickr.com *.flickr.com
