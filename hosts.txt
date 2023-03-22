@@ -8,6 +8,7 @@
 
 # === github
 20.27.177.113 octocaptcha.com
+185.199.110.154 github.githubassets.com
 
 # === duckduckgo
 20.43.161.105 duck.com

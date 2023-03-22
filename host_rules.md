@@ -48,9 +48,10 @@ googlevideo.com
 ```
 github.com
 gist.github.com
+*.githubusercontent.com
 ```
 ```
---host-rules="MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443" --host-resolver-rules="MAP octocaptcha.com 20.27.177.113"
+--host-rules="MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443, MAP *.githubusercontent.com github.githubassets.com:443" --host-resolver-rules="MAP octocaptcha.com 20.27.177.113, MAP github.githubassets.com 185.199.110.154"
 ```
 
 ### duckduckgo

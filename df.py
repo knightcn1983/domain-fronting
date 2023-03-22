@@ -54,6 +54,13 @@ df_hosts = {
     },
     {
       "patterns": [
+        "*.githubusercontent.com"
+      ],
+      "server": "github.githubassets.com",
+      "port": 443
+    },
+    {
+      "patterns": [
         "duckduckgo.com",
         "*.duckduckgo.com"
       ],
