@@ -91,6 +91,14 @@ df_hosts = {
       ],
       "server": "pximg.net",
       "port": 443
+    },
+    {
+      "patterns": [
+        "quora.com",
+        "*.quora.com"
+      ],
+      "server": "qr.ae",
+      "port": 443
     }
   ]
 }

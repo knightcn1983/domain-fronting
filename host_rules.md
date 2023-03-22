@@ -96,3 +96,14 @@ pixiv.net
 --host-rules="MAP pixiv.net fanbox.cc:443, MAP *.pixiv.net fanbox.cc:443, MAP *.pximg.net pximg.net:443" --host-resolver-rules="MAP fanbox.cc 210.140.131.221, MAP pximg.net 210.140.139.136"
 ```
 
+- quora
+
+domain fronting:
+```
+quora.com
+*.quora.com
+```
+```
+--host-rules="MAP quora.com qr.ae:443, MAP *.quora.com qr.ae:443" --host-resolver-rules="MAP qr.ae 107.20.115.65"
+```
+
