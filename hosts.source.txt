@@ -28,3 +28,7 @@
 === pixiv
 -front fanbox.cc 210.140.131.221 443 pixiv.net *.pixiv.net
 -front pximg.net 210.140.139.136 443 *.pximg.net
+
+
+=== quora
+-front qr.ae 107.20.115.65 443 quora.com *.quora.com
