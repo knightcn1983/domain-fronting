@@ -121,6 +121,20 @@ df_hosts = {
       ],
       "server": "combo.staticflickr.com",
       "port": 443
+    },
+    {
+      "patterns": [
+        "onedrive.live.com"
+      ],
+      "server": "od0.live.com",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "skyapi.onedrive.live.com"
+      ],
+      "server": "od0.docs.live.net",
+      "port": 443
     }
   ]
 }

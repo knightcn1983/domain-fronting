@@ -120,3 +120,14 @@ flickr.com
 --host-rules="MAP identity.flickr.com flic.kr:443, MAP flickr.com combo.staticflickr.com:443, MAP *.flickr.com combo.staticflickr.com:443" --host-resolver-rules="MAP flic.kr 34.231.89.51, MAP combo.staticflickr.com 13.35.66.99"
 ```
 
+### onedrive
+
+- domain fronting:
+```
+onedrive.live.com
+skyapi.onedrive.live.com
+```
+```
+--host-rules="MAP onedrive.live.com od0.live.com:443, MAP skyapi.onedrive.live.com od0.docs.live.net:443" --host-resolver-rules="MAP od0.live.com 13.107.42.13, MAP od0.docs.live.net 13.105.28.18"
+```
+

@@ -27,3 +27,7 @@
 # === flickr
 34.231.89.51 flic.kr
 13.35.66.99 combo.staticflickr.com
+
+# === onedrive
+13.107.42.13 od0.live.com
+13.105.28.18 od0.docs.live.net
