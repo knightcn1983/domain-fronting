@@ -43,3 +43,8 @@
 === onedrive
 -front od0.live.com 13.107.42.13 443 onedrive.live.com
 -front od0.docs.live.net 13.105.28.18 443 skyapi.onedrive.live.com
+
+
+=== reddit
+-front log.redditinc.com 199.232.85.140 443 reddit.com *.reddit.com
+-front logs.redditinc.com 199.232.61.140 443 *.redd.it *.redditmedia.com *.redditstatic.com
