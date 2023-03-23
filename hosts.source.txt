@@ -38,3 +38,8 @@
 === flickr
 -front flic.kr 34.231.89.51 443 identity.flickr.com
 -front combo.staticflickr.com 13.35.66.99 443 flickr.com *.flickr.com
+
+
+=== onedrive
+-front od0.live.com 13.107.42.13 443 onedrive.live.com
+-front od0.docs.live.net 13.105.28.18 443 skyapi.onedrive.live.com
