@@ -135,6 +135,23 @@ df_hosts = {
       ],
       "server": "od0.docs.live.net",
       "port": 443
+    },
+    {
+      "patterns": [
+        "reddit.com",
+        "*.reddit.com"
+      ],
+      "server": "log.redditinc.com",
+      "port": 443
+    },
+    {
+      "patterns": [
+        "*.redd.it",
+        "*.redditmedia.com",
+        "*.redditstatic.com"
+      ],
+      "server": "logs.redditinc.com",
+      "port": 443
     }
   ]
 }

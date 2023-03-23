@@ -31,3 +31,7 @@
 # === onedrive
 13.107.42.13 od0.live.com
 13.105.28.18 od0.docs.live.net
+
+# === reddit
+199.232.85.140 log.redditinc.com
+199.232.61.140 logs.redditinc.com

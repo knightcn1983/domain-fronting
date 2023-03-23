@@ -131,3 +131,17 @@ skyapi.onedrive.live.com
 --host-rules="MAP onedrive.live.com od0.live.com:443, MAP skyapi.onedrive.live.com od0.docs.live.net:443" --host-resolver-rules="MAP od0.live.com 13.107.42.13, MAP od0.docs.live.net 13.105.28.18"
 ```
 
+### reddit
+
+- domain fronting:
+```
+reddit.com
+*.reddit.com
+*.redd.it
+*.redditmedia.com
+*.redditstatic.com
+```
+```
+--host-rules="MAP reddit.com log.redditinc.com:443, MAP *.reddit.com log.redditinc.com:443, MAP *.redd.it logs.redditinc.com:443, MAP *.redditmedia.com logs.redditinc.com:443, MAP *.redditstatic.com logs.redditinc.com:443" --host-resolver-rules="MAP log.redditinc.com 199.232.85.140, MAP logs.redditinc.com 199.232.61.140"
+```
+
