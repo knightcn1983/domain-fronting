@@ -46,8 +46,8 @@
 
 
 === reddit
--front log.redditinc.com 199.232.85.140 443 reddit.com *.reddit.com
--front logs.redditinc.com 199.232.61.140 443 *.redd.it *.redditmedia.com *.redditstatic.com
+-front reddithelp.com 199.232.85.140 443 reddit.com *.reddit.com
+-front s.reddithelp.com 199.232.61.140 443 *.redd.it *.redditmedia.com *.redditstatic.com
 
 
 === instagram
