@@ -48,3 +48,7 @@
 === reddit
 -front log.redditinc.com 199.232.85.140 443 reddit.com *.reddit.com
 -front logs.redditinc.com 199.232.61.140 443 *.redd.it *.redditmedia.com *.redditstatic.com
+
+
+=== instagram
+-front igsonar.com 31.13.66.167 443 instagram.com *.instagram.com *.cdninstagram.com
