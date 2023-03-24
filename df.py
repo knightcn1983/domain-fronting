@@ -141,7 +141,7 @@ df_hosts = {
         "reddit.com",
         "*.reddit.com"
       ],
-      "server": "log.redditinc.com",
+      "server": "reddithelp.com",
       "port": 443
     },
     {
@@ -150,7 +150,7 @@ df_hosts = {
         "*.redditmedia.com",
         "*.redditstatic.com"
       ],
-      "server": "logs.redditinc.com",
+      "server": "s.reddithelp.com",
       "port": 443
     },
     {

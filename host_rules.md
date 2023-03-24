@@ -142,7 +142,7 @@ reddit.com
 *.redditstatic.com
 ```
 ```
---host-rules="MAP reddit.com log.redditinc.com:443, MAP *.reddit.com log.redditinc.com:443, MAP *.redd.it logs.redditinc.com:443, MAP *.redditmedia.com logs.redditinc.com:443, MAP *.redditstatic.com logs.redditinc.com:443" --host-resolver-rules="MAP log.redditinc.com 199.232.85.140, MAP logs.redditinc.com 199.232.61.140"
+--host-rules="MAP reddit.com reddithelp.com:443, MAP *.reddit.com reddithelp.com:443, MAP *.redd.it s.reddithelp.com:443, MAP *.redditmedia.com s.reddithelp.com:443, MAP *.redditstatic.com s.reddithelp.com:443" --host-resolver-rules="MAP reddithelp.com 199.232.85.140, MAP s.reddithelp.com 199.232.61.140"
 ```
 
 ### instagram
