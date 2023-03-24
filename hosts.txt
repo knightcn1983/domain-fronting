@@ -35,3 +35,6 @@
 # === reddit
 199.232.85.140 log.redditinc.com
 199.232.61.140 logs.redditinc.com
+
+# === instagram
+31.13.66.167 igsonar.com

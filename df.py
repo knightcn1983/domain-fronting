@@ -152,6 +152,15 @@ df_hosts = {
       ],
       "server": "logs.redditinc.com",
       "port": 443
+    },
+    {
+      "patterns": [
+        "instagram.com",
+        "*.instagram.com",
+        "*.cdninstagram.com"
+      ],
+      "server": "igsonar.com",
+      "port": 443
     }
   ]
 }

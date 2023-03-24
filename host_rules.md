@@ -145,3 +145,15 @@ reddit.com
 --host-rules="MAP reddit.com log.redditinc.com:443, MAP *.reddit.com log.redditinc.com:443, MAP *.redd.it logs.redditinc.com:443, MAP *.redditmedia.com logs.redditinc.com:443, MAP *.redditstatic.com logs.redditinc.com:443" --host-resolver-rules="MAP log.redditinc.com 199.232.85.140, MAP logs.redditinc.com 199.232.61.140"
 ```
 
+### instagram
+
+- domain fronting:
+```
+instagram.com
+*.instagram.com
+*.cdninstagram.com
+```
+```
+--host-rules="MAP instagram.com igsonar.com:443, MAP *.instagram.com igsonar.com:443, MAP *.cdninstagram.com igsonar.com:443" --host-resolver-rules="MAP igsonar.com 31.13.66.167"
+```
+
