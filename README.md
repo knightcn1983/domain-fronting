@@ -18,15 +18,15 @@
 
 ### 第一种方法
 ---
-这方法比较简单，只要在启动浏览器时加入两个参数。如 Windows 上 Google 浏览器：
+这方法比较简单，只要在启动浏览器时加入两个参数：
 ```
-"path/to/chrome.exe" --host-rules="<rules>" --host-resolver-rules="<rules>"
+"浏览器可执行文件" --host-rules="<rules>" --host-resolver-rules="<rules>"
 ```
 在 `powershell` 上运行要在命令前加上 `& `。
 
 浏览器的执行文件路径可在浏览器打开 `chrome://version` 找到。
 
-微软的 edge 还需到浏览器的`设置->系统与性能`把启动增强关闭，否则参数不生效。
+微软的 edge 还需到浏览器的`设置->系统与性能`把`启动增强`关闭，否则参数不生效。
 
 
 [host_rules.md][rules] 有单个网站的 `<rules>`，[df-all.txt][df-all] 合成了所有网站的 `<rules>`。
