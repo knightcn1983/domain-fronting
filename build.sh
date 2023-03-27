@@ -74,13 +74,13 @@ cat <<EOF > $DF_ALL_FILE
 # repo: https://github.com/rabbit2123/domain-fronting
 #
 # 下载本文件：
-#   https://cdn.jsdelivr.net/gh/rabbit2123/domain-fronting@main/df-all.txt
+#   https://cdn.jsdelivr.net/gh/rabbit2123/domain-fronting/df-all.txt
 #   https://raw.githubusercontent.com/rabbit2123/domain-fronting/main/df-all.txt
 #   curl -O https://yelp.com/rabbit2123/domain-fronting/main/df-all.txt -H 'host: raw.githubusercontent.com'
 #
 # 如何使用：
 #   在命令行启动，或者修改浏览器快捷方式。
-#   在powershell上运行要在命令前加上 '& '，不包含单引号。
+#   在powershell上运行要在命令前加上 '& '，不包含引号。
 #   仅支持chromium内核的浏览器如Google浏览器，微软edge，brave等。
 #   浏览器的执行文件路径可在浏览器打开 chrome://version 找到。
 #   微软edge还需关闭浏览器的 设置->系统与性能->启动增强，否则参数不生效。
