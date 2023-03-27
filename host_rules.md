@@ -48,10 +48,11 @@ googlevideo.com
 ```
 github.com
 gist.github.com
+github.githubassets.com
 *.githubusercontent.com
 ```
 ```
---host-rules="MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443, MAP *.githubusercontent.com github.githubassets.com:443" --host-resolver-rules="MAP octocaptcha.com 20.27.177.113, MAP github.githubassets.com 185.199.110.154"
+--host-rules="MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443, MAP github.githubassets.com g.yelp.com:443, MAP *.githubusercontent.com g.yelp.com:443" --host-resolver-rules="MAP octocaptcha.com 20.27.177.113, MAP g.yelp.com 151.101.40.116"
 ```
 
 ### duckduckgo
@@ -71,18 +72,10 @@ duckduckgo.com
 ```
 twitter.com
 *.twitter.com
-abs.twimg.com
-pbs.twimg.com
-video.twimg.com
+*.twimg.com
 ```
 ```
---host-rules="MAP twitter.com tweetdeck.com:443, MAP *.twitter.com tweetdeck.com:443, MAP abs.twimg.com tweetdeck.com:443, MAP pbs.twimg.com tweetdeck.com:443, MAP video.twimg.com test.twimg.com:443" --host-resolver-rules="MAP tweetdeck.com 104.244.45.4, MAP test.twimg.com 192.229.220.133"
-```
-
-
-- proxy hosts:
-```
-twimg.com
+--host-rules="MAP twitter.com tweetdeck.com:443, MAP *.twitter.com tweetdeck.com:443, MAP *.twimg.com t.yelp.com:443" --host-resolver-rules="MAP tweetdeck.com 104.244.45.4, MAP t.yelp.com 151.101.40.116"
 ```
 
 ### pixiv
@@ -142,7 +135,7 @@ reddit.com
 *.redditstatic.com
 ```
 ```
---host-rules="MAP reddit.com reddithelp.com:443, MAP *.reddit.com reddithelp.com:443, MAP *.redd.it s.reddithelp.com:443, MAP *.redditmedia.com s.reddithelp.com:443, MAP *.redditstatic.com s.reddithelp.com:443" --host-resolver-rules="MAP reddithelp.com 199.232.85.140, MAP s.reddithelp.com 199.232.61.140"
+--host-rules="MAP reddit.com r.yelp.com:443, MAP *.reddit.com r.yelp.com:443, MAP *.redd.it r.yelp.com:443, MAP *.redditmedia.com r.yelp.com:443, MAP *.redditstatic.com r.yelp.com:443" --host-resolver-rules="MAP r.yelp.com 151.101.40.116"
 ```
 
 ### instagram

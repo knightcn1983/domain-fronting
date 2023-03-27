@@ -54,9 +54,10 @@ df_hosts = {
     },
     {
       "patterns": [
+        "github.githubassets.com",
         "*.githubusercontent.com"
       ],
-      "server": "github.githubassets.com",
+      "server": "g.yelp.com",
       "port": 443
     },
     {
@@ -70,18 +71,16 @@ df_hosts = {
     {
       "patterns": [
         "twitter.com",
-        "*.twitter.com",
-        "abs.twimg.com",
-        "pbs.twimg.com"
+        "*.twitter.com"
       ],
       "server": "tweetdeck.com",
       "port": 443
     },
     {
       "patterns": [
-        "video.twimg.com"
+        "*.twimg.com"
       ],
-      "server": "test.twimg.com",
+      "server": "t.yelp.com",
       "port": 443
     },
     {
@@ -139,18 +138,12 @@ df_hosts = {
     {
       "patterns": [
         "reddit.com",
-        "*.reddit.com"
-      ],
-      "server": "reddithelp.com",
-      "port": 443
-    },
-    {
-      "patterns": [
+        "*.reddit.com",
         "*.redd.it",
         "*.redditmedia.com",
         "*.redditstatic.com"
       ],
-      "server": "s.reddithelp.com",
+      "server": "r.yelp.com",
       "port": 443
     },
     {
@@ -167,7 +160,6 @@ df_hosts = {
 
 proxy_hosts = [
     "googlevideo.com",
-    "twimg.com",
 ]
 
 

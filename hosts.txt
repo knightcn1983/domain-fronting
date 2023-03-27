@@ -8,14 +8,14 @@
 
 # === github
 20.27.177.113 octocaptcha.com
-185.199.110.154 github.githubassets.com
+151.101.40.116 g.yelp.com
 
 # === duckduckgo
 20.43.161.105 duck.com
 
 # === twitter
 104.244.45.4 tweetdeck.com
-192.229.220.133 test.twimg.com
+151.101.40.116 t.yelp.com
 
 # === pixiv
 210.140.131.221 fanbox.cc
@@ -33,8 +33,7 @@
 13.105.28.18 od0.docs.live.net
 
 # === reddit
-199.232.85.140 reddithelp.com
-199.232.61.140 s.reddithelp.com
+151.101.40.116 r.yelp.com
 
 # === instagram
 31.13.66.167 igsonar.com
