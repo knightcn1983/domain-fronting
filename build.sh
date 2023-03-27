@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# 由 hosts.source.txt 生成四个文件：
-# hosts.txt, host_rules.md, domain_fronting.json, df.py
+# 由 hosts.source.txt 生成以下几个文件：
+# hosts.txt, host_rules.md, domain_fronting.json, df.py, df-all.txt
 
 SOURCE_FILE="hosts.source.txt"
 ALL_LINES=$(wc -l "$SOURCE_FILE" |awk '{print $1}')
@@ -13,6 +13,7 @@ JSON_FILE="domain_fronting.json"
 HOST_RULES=""
 HOST_RESOLVER_RULES=""
 RULES_FILE="host_rules.md"
+TMP_RULES_FILE=""
 ALL_HOST_RULES=""
 ALL_HOST_RESOLVER_RULES=""
 DF_ALL_FILE="df-all.txt"
@@ -25,16 +26,27 @@ PROXY_HOSTS=""
 TMP_PROXY_HOSTS_FILE=""
 
 
-_rules_file_header() {
+_rules_file_start() {
 cat <<EOF > $RULES_FILE
-## 支持的网站列表
-（本文档由脚本生成）
-
+# 支持的网站列表
 相同参数的内容合并在一起，可以让多个网站使用域前置。
+如果部署并设置了 cloudflare workers/pages，proxy hosts 可通过其转发。
 
-如果部署并设置了 cloudflare workers，proxy hosts 可通过其转发。
-
+- [全部网站](#全部网站)
 EOF
+}
+
+_rules_file_end() {
+    echo "" >> $RULES_FILE
+    echo "" >> $RULES_FILE
+    echo "## 全部网站" >> $RULES_FILE
+    echo "- domain fronting:" >> $RULES_FILE
+    echo '```' >> $RULES_FILE
+    echo -n "--host-rules=\"${ALL_HOST_RULES%, }\"" >> $RULES_FILE
+    echo " --host-resolver-rules=\"${ALL_HOST_RESOLVER_RULES%, }\"" >> $RULES_FILE
+    echo '```' >> $RULES_FILE
+
+    cat $TMP_RULES_FILE >> $RULES_FILE
 }
 
 _json_file_start() {
@@ -57,18 +69,39 @@ EOF
 }
 
 _write_df_all_file() {
-    echo -n "--host-rules=\"${ALL_HOST_RULES%, }\"" > $DF_ALL_FILE
+cat <<EOF > $DF_ALL_FILE
+# update: $(date)
+# repo: https://github.com/rabbit2123/domain-fronting
+#
+# 下载本文件：
+#   https://cdn.jsdelivr.net/gh/rabbit2123/domain-fronting@main/df-all.txt
+#   https://raw.githubusercontent.com/rabbit2123/domain-fronting/main/df-all.txt
+#   curl -O https://yelp.com/rabbit2123/domain-fronting/main/df-all.txt -H 'host: raw.githubusercontent.com'
+#
+# 如何使用：
+#   在命令行启动，或者修改浏览器快捷方式。
+#   在powershell上运行要在命令前加上 '& '，不包含单引号。
+#   仅支持chromium内核的浏览器如Google浏览器，微软edge，brave等。
+#   浏览器的执行文件路径可在浏览器打开 chrome://version 找到。
+#   微软edge还需关闭浏览器的 设置->系统与性能->启动增强，否则参数不生效。
+
+
+EOF
+
+    echo -n "\"浏览器可执行文件\"" >> $DF_ALL_FILE
+    echo -n " --host-rules=\"${ALL_HOST_RULES%, }\"" >> $DF_ALL_FILE
     echo " --host-resolver-rules=\"${ALL_HOST_RESOLVER_RULES%, }\"" >> $DF_ALL_FILE
 }
 
 _write_host() {
     local line_array=($@)
-    # ip and front domain
+    # ip front-domain
     echo "${line_array[2]} ${line_array[1]}" >> $HOSTS_FILE
 }
 
 _make_temp_rule() {
     local line_array=($@)
+    # map front-domain ip
     HOST_RESOLVER_RULES+="MAP ${line_array[1]} ${line_array[2]}, "
 
     # 从第 5 个字段开始作为 host 域名
@@ -77,6 +110,7 @@ _make_temp_rule() {
 		for (i=5;i<=NF;i++)
 		    printf "%s%s", $i, (i<NF ? OFS : "")}')
     for host in $hosts; do
+        # map host front-domain:port
         HOST_RULES+="MAP $host ${line_array[1]}:${line_array[3]}, "
         FRONT_HOSTS+="${host} "
     done
@@ -86,15 +120,15 @@ _write_rule() {
     # 把网站 rules 写入文件，同时清零
 
     if [ "$HOST_RULES" ]; then
-        echo "" >> $RULES_FILE	
-        echo "- domain fronting:" >> $RULES_FILE
-        echo '```' >> $RULES_FILE
+        echo "" >> $TMP_RULES_FILE
+        echo "- domain fronting:" >> $TMP_RULES_FILE
+        echo '```' >> $TMP_RULES_FILE
         for host in $FRONT_HOSTS; do
-            echo "$host" >> $RULES_FILE
+            echo "$host" >> $TMP_RULES_FILE
         done
-        echo '```' >> $RULES_FILE
+        echo '```' >> $TMP_RULES_FILE
 
-        cat <<EOF >> $RULES_FILE
+        cat <<EOF >> $TMP_RULES_FILE
 $(echo '```')
 --host-rules="${HOST_RULES%, }" --host-resolver-rules="${HOST_RESOLVER_RULES%, }"
 $(echo '```')
@@ -105,14 +139,14 @@ EOF
     fi
 
     if [ "$PROXY_HOSTS" ]; then
-        echo "" >> $RULES_FILE
-        echo "- proxy hosts:" >> $RULES_FILE
-        echo '```' >> $RULES_FILE
-	for host in $PROXY_HOSTS; do
-            echo "$host" >> $RULES_FILE
+        echo "" >> $TMP_RULES_FILE
+        echo "- proxy hosts:" >> $TMP_RULES_FILE
+        echo '```' >> $TMP_RULES_FILE
+        for host in $PROXY_HOSTS; do
+            echo "$host" >> $TMP_RULES_FILE
         done
-        echo '```' >> $RULES_FILE
-        echo "" >> $RULES_FILE
+        echo '```' >> $TMP_RULES_FILE
+        echo "" >> $TMP_RULES_FILE
     fi
 
     HOST_RULES=""
@@ -175,31 +209,37 @@ _write_proxy_host() {
 }
 
 generate_files() {
-    _rules_file_header
+    _rules_file_start
     _df_file_header
     _json_file_start
     TMP_PROXY_HOSTS_FILE=$(mktemp)
+    TMP_RULES_FILE=$(mktemp)
     echo -n "" > $HOSTS_FILE
 
     while IFS='' read -r line; do
         LINE_NUMBER=$(($LINE_NUMBER + 1))
+        local line_array=($line)
 
 	# 网站名称以 === 开头
         echo "$line" |grep '^ *===' >/dev/null
         if [ "$?" -eq 0 ]; then
-	    # hosts.txt
-            echo "" >> $HOSTS_FILE
-            echo "# $line" >> $HOSTS_FILE
+            unset line_array[0]
 
-            # host_rule.md
-            # 把上一个网站 rules 写入文件
+            # hosts.txt
+            echo "" >> $HOSTS_FILE
+            echo "# === ${line_array[@]}" >> $HOSTS_FILE
+
+            # 把上一个网站rules写入临时rules文件
             _write_rule
-	    # 写入网站名称
-            echo "###${line//=/}" >> $RULES_FILE
+
+            # 写入网站名称
+            title=${line_array[@]}
+            echo "- [$title](#${title// /-})" >> $RULES_FILE
+            echo "## $title" >> $TMP_RULES_FILE
             continue
         fi
 
-	# 以 -front 开头的行为 domain fronting 的域名
+        # 以 -front 开头的行为 domain fronting 的域名
         echo "$line" |grep '^ *-front' >/dev/null
         if [ "$?" -eq 0 ]; then
             _write_host $line
@@ -220,10 +260,12 @@ generate_files() {
         _write_rule
     fi
 
+    _rules_file_end
     _json_file_end
     _write_df_file
     _write_df_all_file
     rm $TMP_PROXY_HOSTS_FILE
+    rm $TMP_RULES_FILE
 }
 
 generate_files
