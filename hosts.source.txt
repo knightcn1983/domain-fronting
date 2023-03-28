@@ -11,7 +11,7 @@
 
 === github
 -front octocaptcha.com 20.27.177.113 443 github.com gist.github.com
--front g.yelp.com 151.101.40.116 443 github.githubassets.com *.githubusercontent.com
+-front github.githubassets.com 185.199.108.154 443 *.githubusercontent.com
 
 
 === duckduckgo
@@ -21,7 +21,7 @@
 === twitter
 # blog.twtrinc.com shopify.twitterintegration.com
 -front tweetdeck.com 104.244.45.4 443 twitter.com *.twitter.com
--front t.yelp.com 151.101.40.116 443 *.twimg.com
+-front github.githubassets.com 185.199.108.154 443 *.twimg.com
 
 
 === pixiv
@@ -44,7 +44,7 @@
 
 
 === reddit
--front r.yelp.com 151.101.40.116 443 reddit.com *.reddit.com *.redd.it *.redditmedia.com *.redditstatic.com
+-front github.githubassets.com 185.199.108.154 443 reddit.com *.reddit.com *.redd.it *.redditmedia.com *.redditstatic.com
 
 
 === instagram
