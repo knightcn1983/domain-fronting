@@ -54,10 +54,9 @@ df_hosts = {
     },
     {
       "patterns": [
-        "github.githubassets.com",
         "*.githubusercontent.com"
       ],
-      "server": "g.yelp.com",
+      "server": "github.githubassets.com",
       "port": 443
     },
     {
@@ -80,7 +79,7 @@ df_hosts = {
       "patterns": [
         "*.twimg.com"
       ],
-      "server": "t.yelp.com",
+      "server": "github.githubassets.com",
       "port": 443
     },
     {
@@ -143,7 +142,7 @@ df_hosts = {
         "*.redditmedia.com",
         "*.redditstatic.com"
       ],
-      "server": "r.yelp.com",
+      "server": "github.githubassets.com",
       "port": 443
     },
     {
