@@ -1,4 +1,4 @@
-# update: Thu Mar 30 08:07:49 UTC 2023
+# update: Thu Mar 30 09:27:57 UTC 2023
 # repo: https://github.com/rabbit2123/domain-fronting
 
 
@@ -40,3 +40,6 @@
 
 # === instagram
 31.13.66.167 igsonar.com
+
+# === openai
+52.152.96.252 platform.openai.com

@@ -1,4 +1,4 @@
-# update: Thu Mar 30 08:07:49 UTC 2023
+# update: Thu Mar 30 09:27:57 UTC 2023
 # repo: https://github.com/rabbit2123/domain-fronting
 #
 # Usage:
@@ -152,12 +152,20 @@ df_hosts = {
       ],
       "server": "igsonar.com",
       "port": 443
+    },
+    {
+      "patterns": [
+        "api.openai.com"
+      ],
+      "server": "platform.openai.com",
+      "port": 443
     }
   ]
 }
 
 proxy_hosts = [
     "googlevideo.com",
+    "chat.openai.com",
 ]
 
 
