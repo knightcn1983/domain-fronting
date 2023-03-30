@@ -77,9 +77,14 @@ front common od0.docs.live.net 13.105.28.18 443 skyapi.onedrive.live.com
 
 === reddit
 front dianxin www.yelp.com 151.101.40.116 443 reddit.com *.reddit.com *.redd.it *.redditmedia.com *.redditstatic.com
-
 front other github.githubassets.com 185.199.108.154 443 reddit.com *.reddit.com *.redd.it *.redditmedia.com *.redditstatic.com
 
 
 === instagram
 front common igsonar.com 31.13.66.167 443 instagram.com *.instagram.com *.cdninstagram.com
+
+
+=== openai
+front common platform.openai.com 52.152.96.252 443 api.openai.com
+
+proxy chat.openai.com
