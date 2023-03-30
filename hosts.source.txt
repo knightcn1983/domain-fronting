@@ -86,5 +86,3 @@ front common igsonar.com 31.13.66.167 443 instagram.com *.instagram.com *.cdnins
 
 === openai
 front common platform.openai.com 52.152.96.252 443 api.openai.com
-
-proxy chat.openai.com
