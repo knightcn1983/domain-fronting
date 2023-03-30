@@ -1,0 +1,42 @@
+# update: Thu Mar 30 07:54:39 UTC 2023
+# repo: https://github.com/rabbit2123/domain-fronting
+
+
+# === 维基百科
+103.102.166.240 upload.wikimedia.org
+208.80.153.224 wikivoyage.org
+
+# === google
+106.75.251.36 www.gstatic.cn
+
+# === github
+20.27.177.113 octocaptcha.com
+151.101.40.116 www.yelp.com
+
+# === duckduckgo
+20.43.161.105 duck.com
+
+# === twitter
+104.244.45.4 tweetdeck.com
+151.101.40.116 www.yelp.com
+
+# === pixiv
+210.140.131.221 fanbox.cc
+210.140.139.136 pximg.net
+
+# === quora
+107.20.115.65 qr.ae
+
+# === flickr
+34.231.89.51 flic.kr
+13.35.66.99 combo.staticflickr.com
+
+# === onedrive
+13.107.42.13 od0.live.com
+13.105.28.18 od0.docs.live.net
+
+# === reddit
+151.101.40.116 www.yelp.com
+
+# === instagram
+31.13.66.167 igsonar.com

@@ -1,167 +1,24 @@
 # 支持的网站列表
-相同参数的内容合并在一起，可以让多个网站使用域前置。
-如果部署并设置了 cloudflare workers/pages，proxy hosts 可通过其转发。
+具体哪些域名使用了域前置，哪些可以通过cloudflare workers/pages转发，请看[hosts.source.txt](https://github.com/rabbit2123/domain-fronting/blob/main/hosts.source.txt)。
 
-- [全部网站](#全部网站)
-- [维基百科](#维基百科)
-- [google](#google)
-- [github](#github)
-- [duckduckgo](#duckduckgo)
-- [twitter](#twitter)
-- [pixiv](#pixiv)
-- [quora](#quora)
-- [flickr](#flickr)
-- [onedrive](#onedrive)
-- [reddit](#reddit)
-- [instagram](#instagram)
+- 维基百科
+- google
+- github
+- duckduckgo
+- twitter
+- pixiv
+- quora
+- flickr
+- onedrive
+- reddit
+- instagram
 
+## 电信网络
+```
+--host-rules="MAP upload.wikimedia.org upload.wikimedia.org:443, MAP *.wikipedia.org wikivoyage.org:443, MAP wikimedia.org wikivoyage.org:443, MAP *.wikimedia.org wikivoyage.org:443, MAP google.com www.gstatic.cn:443, MAP youtube.com www.gstatic.cn:443, MAP *.google.com www.gstatic.cn:443, MAP *.gstatic.com www.gstatic.cn:443, MAP *.googleapis.com www.gstatic.cn:443, MAP *.googleusercontent.com www.gstatic.cn:443, MAP *.ytimg.com www.gstatic.cn:443, MAP *.youtube.com www.gstatic.cn:443, MAP *.ggpht.com www.gstatic.cn:443, MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443, MAP github.githubassets.com www.yelp.com:443, MAP *.githubusercontent.com www.yelp.com:443, MAP duckduckgo.com duck.com:443, MAP *.duckduckgo.com duck.com:443, MAP twitter.com tweetdeck.com:443, MAP *.twitter.com tweetdeck.com:443, MAP *.twimg.com www.yelp.com:443, MAP pixiv.net fanbox.cc:443, MAP *.pixiv.net fanbox.cc:443, MAP *.pximg.net pximg.net:443, MAP quora.com qr.ae:443, MAP *.quora.com qr.ae:443, MAP identity.flickr.com flic.kr:443, MAP flickr.com combo.staticflickr.com:443, MAP *.flickr.com combo.staticflickr.com:443, MAP onedrive.live.com od0.live.com:443, MAP skyapi.onedrive.live.com od0.docs.live.net:443, MAP reddit.com www.yelp.com:443, MAP *.reddit.com www.yelp.com:443, MAP *.redd.it www.yelp.com:443, MAP *.redditmedia.com www.yelp.com:443, MAP *.redditstatic.com www.yelp.com:443, MAP instagram.com igsonar.com:443, MAP *.instagram.com igsonar.com:443, MAP *.cdninstagram.com igsonar.com:443" --host-resolver-rules="MAP upload.wikimedia.org 103.102.166.240, MAP wikivoyage.org 208.80.153.224, MAP www.gstatic.cn 106.75.251.36, MAP octocaptcha.com 20.27.177.113, MAP www.yelp.com 151.101.40.116, MAP duck.com 20.43.161.105, MAP tweetdeck.com 104.244.45.4, MAP www.yelp.com 151.101.40.116, MAP fanbox.cc 210.140.131.221, MAP pximg.net 210.140.139.136, MAP qr.ae 107.20.115.65, MAP flic.kr 34.231.89.51, MAP combo.staticflickr.com 13.35.66.99, MAP od0.live.com 13.107.42.13, MAP od0.docs.live.net 13.105.28.18, MAP www.yelp.com 151.101.40.116, MAP igsonar.com 31.13.66.167"
+```
 
-## 全部网站
-- domain fronting:
+## 其他网络
 ```
 --host-rules="MAP upload.wikimedia.org upload.wikimedia.org:443, MAP *.wikipedia.org wikivoyage.org:443, MAP wikimedia.org wikivoyage.org:443, MAP *.wikimedia.org wikivoyage.org:443, MAP google.com www.gstatic.cn:443, MAP youtube.com www.gstatic.cn:443, MAP *.google.com www.gstatic.cn:443, MAP *.gstatic.com www.gstatic.cn:443, MAP *.googleapis.com www.gstatic.cn:443, MAP *.googleusercontent.com www.gstatic.cn:443, MAP *.ytimg.com www.gstatic.cn:443, MAP *.youtube.com www.gstatic.cn:443, MAP *.ggpht.com www.gstatic.cn:443, MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443, MAP *.githubusercontent.com github.githubassets.com:443, MAP duckduckgo.com duck.com:443, MAP *.duckduckgo.com duck.com:443, MAP twitter.com tweetdeck.com:443, MAP *.twitter.com tweetdeck.com:443, MAP *.twimg.com github.githubassets.com:443, MAP pixiv.net fanbox.cc:443, MAP *.pixiv.net fanbox.cc:443, MAP *.pximg.net pximg.net:443, MAP quora.com qr.ae:443, MAP *.quora.com qr.ae:443, MAP identity.flickr.com flic.kr:443, MAP flickr.com combo.staticflickr.com:443, MAP *.flickr.com combo.staticflickr.com:443, MAP onedrive.live.com od0.live.com:443, MAP skyapi.onedrive.live.com od0.docs.live.net:443, MAP reddit.com github.githubassets.com:443, MAP *.reddit.com github.githubassets.com:443, MAP *.redd.it github.githubassets.com:443, MAP *.redditmedia.com github.githubassets.com:443, MAP *.redditstatic.com github.githubassets.com:443, MAP instagram.com igsonar.com:443, MAP *.instagram.com igsonar.com:443, MAP *.cdninstagram.com igsonar.com:443" --host-resolver-rules="MAP upload.wikimedia.org 103.102.166.240, MAP wikivoyage.org 208.80.153.224, MAP www.gstatic.cn 106.75.251.36, MAP octocaptcha.com 20.27.177.113, MAP github.githubassets.com 185.199.108.154, MAP duck.com 20.43.161.105, MAP tweetdeck.com 104.244.45.4, MAP github.githubassets.com 185.199.108.154, MAP fanbox.cc 210.140.131.221, MAP pximg.net 210.140.139.136, MAP qr.ae 107.20.115.65, MAP flic.kr 34.231.89.51, MAP combo.staticflickr.com 13.35.66.99, MAP od0.live.com 13.107.42.13, MAP od0.docs.live.net 13.105.28.18, MAP github.githubassets.com 185.199.108.154, MAP igsonar.com 31.13.66.167"
 ```
-## 维基百科
-
-- domain fronting:
-```
-upload.wikimedia.org
-*.wikipedia.org
-wikimedia.org
-*.wikimedia.org
-```
-```
---host-rules="MAP upload.wikimedia.org upload.wikimedia.org:443, MAP *.wikipedia.org wikivoyage.org:443, MAP wikimedia.org wikivoyage.org:443, MAP *.wikimedia.org wikivoyage.org:443" --host-resolver-rules="MAP upload.wikimedia.org 103.102.166.240, MAP wikivoyage.org 208.80.153.224"
-```
-
-## google
-
-- domain fronting:
-```
-google.com
-youtube.com
-*.google.com
-*.gstatic.com
-*.googleapis.com
-*.googleusercontent.com
-*.ytimg.com
-*.youtube.com
-*.ggpht.com
-```
-```
---host-rules="MAP google.com www.gstatic.cn:443, MAP youtube.com www.gstatic.cn:443, MAP *.google.com www.gstatic.cn:443, MAP *.gstatic.com www.gstatic.cn:443, MAP *.googleapis.com www.gstatic.cn:443, MAP *.googleusercontent.com www.gstatic.cn:443, MAP *.ytimg.com www.gstatic.cn:443, MAP *.youtube.com www.gstatic.cn:443, MAP *.ggpht.com www.gstatic.cn:443" --host-resolver-rules="MAP www.gstatic.cn 106.75.251.36"
-```
-
-
-- proxy hosts:
-```
-googlevideo.com
-```
-
-## github
-
-- domain fronting:
-```
-github.com
-gist.github.com
-*.githubusercontent.com
-```
-```
---host-rules="MAP github.com octocaptcha.com:443, MAP gist.github.com octocaptcha.com:443, MAP *.githubusercontent.com github.githubassets.com:443" --host-resolver-rules="MAP octocaptcha.com 20.27.177.113, MAP github.githubassets.com 185.199.108.154"
-```
-
-## duckduckgo
-
-- domain fronting:
-```
-duckduckgo.com
-*.duckduckgo.com
-```
-```
---host-rules="MAP duckduckgo.com duck.com:443, MAP *.duckduckgo.com duck.com:443" --host-resolver-rules="MAP duck.com 20.43.161.105"
-```
-
-## twitter
-
-- domain fronting:
-```
-twitter.com
-*.twitter.com
-*.twimg.com
-```
-```
---host-rules="MAP twitter.com tweetdeck.com:443, MAP *.twitter.com tweetdeck.com:443, MAP *.twimg.com github.githubassets.com:443" --host-resolver-rules="MAP tweetdeck.com 104.244.45.4, MAP github.githubassets.com 185.199.108.154"
-```
-
-## pixiv
-
-- domain fronting:
-```
-pixiv.net
-*.pixiv.net
-*.pximg.net
-```
-```
---host-rules="MAP pixiv.net fanbox.cc:443, MAP *.pixiv.net fanbox.cc:443, MAP *.pximg.net pximg.net:443" --host-resolver-rules="MAP fanbox.cc 210.140.131.221, MAP pximg.net 210.140.139.136"
-```
-
-## quora
-
-- domain fronting:
-```
-quora.com
-*.quora.com
-```
-```
---host-rules="MAP quora.com qr.ae:443, MAP *.quora.com qr.ae:443" --host-resolver-rules="MAP qr.ae 107.20.115.65"
-```
-
-## flickr
-
-- domain fronting:
-```
-identity.flickr.com
-flickr.com
-*.flickr.com
-```
-```
---host-rules="MAP identity.flickr.com flic.kr:443, MAP flickr.com combo.staticflickr.com:443, MAP *.flickr.com combo.staticflickr.com:443" --host-resolver-rules="MAP flic.kr 34.231.89.51, MAP combo.staticflickr.com 13.35.66.99"
-```
-
-## onedrive
-
-- domain fronting:
-```
-onedrive.live.com
-skyapi.onedrive.live.com
-```
-```
---host-rules="MAP onedrive.live.com od0.live.com:443, MAP skyapi.onedrive.live.com od0.docs.live.net:443" --host-resolver-rules="MAP od0.live.com 13.107.42.13, MAP od0.docs.live.net 13.105.28.18"
-```
-
-## reddit
-
-- domain fronting:
-```
-reddit.com
-*.reddit.com
-*.redd.it
-*.redditmedia.com
-*.redditstatic.com
-```
-```
---host-rules="MAP reddit.com github.githubassets.com:443, MAP *.reddit.com github.githubassets.com:443, MAP *.redd.it github.githubassets.com:443, MAP *.redditmedia.com github.githubassets.com:443, MAP *.redditstatic.com github.githubassets.com:443" --host-resolver-rules="MAP github.githubassets.com 185.199.108.154"
-```
-
-## instagram
-
-- domain fronting:
-```
-instagram.com
-*.instagram.com
-*.cdninstagram.com
-```
-```
---host-rules="MAP instagram.com igsonar.com:443, MAP *.instagram.com igsonar.com:443, MAP *.cdninstagram.com igsonar.com:443" --host-resolver-rules="MAP igsonar.com 31.13.66.167"
-```
-
