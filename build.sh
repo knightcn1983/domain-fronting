@@ -27,7 +27,6 @@ cat <<EOF > $DF_TXT_FILE
 # 下载本文件：
 #   https://raw.githubusercontent.com/rabbit2123/domain-fronting/main/$DF_TXT_FILE
 #   https://cf.rabbit2123.kozow.com/gh/domain-fronting/main/$DF_TXT_FILE
-#   curl -O https://yelp.com/rabbit2123/domain-fronting/main/$DF_TXT_FILE -H 'host: raw.githubusercontent.com'
 #
 # 如何使用：
 #   支持chromium内核的浏览器如Google浏览器，微软edge，brave等。
