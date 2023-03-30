@@ -1,4 +1,4 @@
-# update: Thu Mar 30 07:54:39 UTC 2023
+# update: Thu Mar 30 08:07:49 UTC 2023
 # repo: https://github.com/rabbit2123/domain-fronting
 #
 # Usage:

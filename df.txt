@@ -1,10 +1,9 @@
-# update: Thu Mar 30 07:54:38 UTC 2023
+# update: Thu Mar 30 08:07:49 UTC 2023
 # repo: https://github.com/rabbit2123/domain-fronting
 #
 # 下载本文件：
 #   https://raw.githubusercontent.com/rabbit2123/domain-fronting/main/df.txt
 #   https://cf.rabbit2123.kozow.com/gh/domain-fronting/main/df.txt
-#   curl -O https://yelp.com/rabbit2123/domain-fronting/main/df.txt -H 'host: raw.githubusercontent.com'
 #
 # 如何使用：
 #   支持chromium内核的浏览器如Google浏览器，微软edge，brave等。
