@@ -37,7 +37,8 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add domain_fronting.json host_rules.md hosts.txt df.py df-all.txt
+          git add df.txt host_rules.md
+          git add df-dianxin.py df-other.py hosts-dianxin.txt hosts-other.txt 
           git commit -m "generate files"
 
       - name: Push changes

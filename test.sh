@@ -5,19 +5,20 @@ FAILED_TESTS=()
 
 _test_host() {
     local line_array=($@)
-    echo "testing: ${line_array[1]} ${line_array[2]}:${line_array[3]}"
+    # front-domain ip:port
+    echo "testing: ${line_array[2]} ${line_array[3]}:${line_array[4]}"
     curl --max-time 3 -sS -I \
-        "https://${line_array[1]}" \
-        --connect-to ::${line_array[2]}:${line_array[3]} >/dev/null
+        "https://${line_array[2]}" \
+        --connect-to ::${line_array[3]}:${line_array[4]} >/dev/null
     if [ $? -ne 0 ]; then
         n=${#FAILED_TESTS[@]}
-        FAILED_TESTS[n]="${line_array[1]}-${line_array[2]}:${line_array[3]}"
+        FAILED_TESTS[n]="${line_array[2]}-${line_array[3]}:${line_array[4]}"
     fi
 }
 
 test_hosts() {
     while IFS='' read -r line; do
-        echo "$line" |grep '^ *-front' >/dev/null
+        echo "$line" |grep '^ *front' >/dev/null
         if [ "$?" -eq 0 ]; then
             _test_host $line
         fi

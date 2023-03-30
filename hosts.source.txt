@@ -1,51 +1,85 @@
+###### 本文件格式如下：
+# 忽略空行
+# 以 # 开头的是注释
+# 以 === 开头为网站名称
+# 以 front 开头的行作为 domain fronting，星号开头的域名包含所有子域名
+# 以 proxy 开头的行，域名可通过 cloudflare workers/pages 转发，包含所有子域名
+# 
+# front行的第2字段为ISP，可取值为：
+#   common：没有对ISP进行优化，包含在以下文件。
+#   dianxin：电信网络，包含在hosts-dianxin.txt和df-dianxin.py文件。
+#   other：其他网络，包含在hosts-other.txt和df-other.py文件。
+#
+#=== 网站名称
+#front ISP sni域名 IP 端口 host域名...
+#proxy 域名...
+
+#=== example
+#front common  sni-host1 ip  port example.com
+#front dianxin sni-host2 ip1 port www.example.com
+#front other   sni-host3 ip2 port www.example.com
+#proxy proxy.example.com
+
+
+###### 生成文件
+# bash build.sh
+
+
+#######################################################
 === 维基百科
--front upload.wikimedia.org 103.102.166.240 443 upload.wikimedia.org
--front wikivoyage.org 208.80.153.224 443 *.wikipedia.org wikimedia.org *.wikimedia.org 
+front common upload.wikimedia.org 103.102.166.240 443 upload.wikimedia.org
+front common wikivoyage.org 208.80.153.224 443 *.wikipedia.org wikimedia.org *.wikimedia.org 
 
 
 === google
--front www.gstatic.cn 106.75.251.36 443 google.com youtube.com *.google.com *.gstatic.com *.googleapis.com *.googleusercontent.com *.ytimg.com *.youtube.com *.ggpht.com
+front common www.gstatic.cn 106.75.251.36 443 google.com youtube.com *.google.com *.gstatic.com *.googleapis.com *.googleusercontent.com *.ytimg.com *.youtube.com *.ggpht.com
 
--proxy googlevideo.com
+proxy googlevideo.com
 
 
 === github
--front octocaptcha.com 20.27.177.113 443 github.com gist.github.com
--front github.githubassets.com 185.199.108.154 443 *.githubusercontent.com
+front common octocaptcha.com 20.27.177.113 443 github.com gist.github.com
+
+front dianxin www.yelp.com 151.101.40.116 443 github.githubassets.com *.githubusercontent.com
+front other github.githubassets.com 185.199.108.154 443 *.githubusercontent.com
 
 
 === duckduckgo
--front duck.com 20.43.161.105 443 duckduckgo.com *.duckduckgo.com
+front common duck.com 20.43.161.105 443 duckduckgo.com *.duckduckgo.com
 
 
 === twitter
 # blog.twtrinc.com shopify.twitterintegration.com
--front tweetdeck.com 104.244.45.4 443 twitter.com *.twitter.com
--front github.githubassets.com 185.199.108.154 443 *.twimg.com
+front common tweetdeck.com 104.244.45.4 443 twitter.com *.twitter.com
+
+front dianxin www.yelp.com 151.101.40.116 443 *.twimg.com
+front other github.githubassets.com 185.199.108.154 443 *.twimg.com
 
 
 === pixiv
--front fanbox.cc 210.140.131.221 443 pixiv.net *.pixiv.net
--front pximg.net 210.140.139.136 443 *.pximg.net
+front common fanbox.cc 210.140.131.221 443 pixiv.net *.pixiv.net
+front common pximg.net 210.140.139.136 443 *.pximg.net
 
 
 === quora
--front qr.ae 107.20.115.65 443 quora.com *.quora.com
+front common qr.ae 107.20.115.65 443 quora.com *.quora.com
 
 
 === flickr
--front flic.kr 34.231.89.51 443 identity.flickr.com
--front combo.staticflickr.com 13.35.66.99 443 flickr.com *.flickr.com
+front common flic.kr 34.231.89.51 443 identity.flickr.com
+front common combo.staticflickr.com 13.35.66.99 443 flickr.com *.flickr.com
 
 
 === onedrive
--front od0.live.com 13.107.42.13 443 onedrive.live.com
--front od0.docs.live.net 13.105.28.18 443 skyapi.onedrive.live.com
+front common od0.live.com 13.107.42.13 443 onedrive.live.com
+front common od0.docs.live.net 13.105.28.18 443 skyapi.onedrive.live.com
 
 
 === reddit
--front github.githubassets.com 185.199.108.154 443 reddit.com *.reddit.com *.redd.it *.redditmedia.com *.redditstatic.com
+front dianxin www.yelp.com 151.101.40.116 443 reddit.com *.reddit.com *.redd.it *.redditmedia.com *.redditstatic.com
+
+front other github.githubassets.com 185.199.108.154 443 reddit.com *.reddit.com *.redd.it *.redditmedia.com *.redditstatic.com
 
 
 === instagram
--front igsonar.com 31.13.66.167 443 instagram.com *.instagram.com *.cdninstagram.com
+front common igsonar.com 31.13.66.167 443 instagram.com *.instagram.com *.cdninstagram.com

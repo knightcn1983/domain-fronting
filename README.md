@@ -13,7 +13,7 @@
 有两种方法可以使用域前置：
 
 1. 使用 chromium 内核的浏览器，比如 Google 浏览器，微软的 edge，brave等，缺点是只能在浏览器上使用
-2. 借助 [mitmproxy][mitm] 和[域前置脚本][df-py]，支持 http2
+2. 借助 [mitmproxy][mitm] 和域前置脚本，支持 http2
 
 
 ### 第一种方法
@@ -28,19 +28,21 @@
 
 微软的 edge 还需到浏览器的`设置->系统与性能`把`启动增强`关闭，否则参数不生效。
 
-参数内容请看[host_rules.md][rules]或者[df-all.txt][df-all]。
+参数内容请看[host_rules.md][rules]或者[df.txt][df-all]([mirror][df-link])。
 
 
 ### 第二种方法
 ---
 按照以下步骤操作完成后，http 代理监听在 127.0.0.1:8080，加参数 `-p PORT` 可修改端口。 
 
-1. 下载安装 [mitmproxy][mitm-dl]
-2. 下载这两个文件 `df.py` `hosts.txt`
-3. 复制 `hosts.txt` 内容添加到系统 `hosts` 文件
-4. 打开命令行并切换到 `df.py` 所在目录，然后运行
+1. 安装 [mitmproxy][mitm-dl]
+2. 下载相应文件
+    - 电信网络：`df-dianxin.py` `hosts-dianxin.txt`
+    - 其他网络：`df-other.py` `hosts-other.txt`
+3. 复制 `hosts文件` 内容添加到系统 `hosts` 文件
+4. 打开命令行并切换到 `py文件` 所在目录，然后运行
 ```
-mitmdump.exe -s ./df.py
+mitmdump.exe -s ./py文件
 ```
 5. 配置浏览器或系统使用 http 代理
 6. 在浏览器打开 http://mitm.it 按照提示安装 CA 证书，否则会报证书错误。
@@ -48,48 +50,19 @@ mitmdump.exe -s ./df.py
 
 #### Cloudflare Workers/Pages(可选)
 ---
-有些网站域名不可使用域前置访问，正好用 Workers 转发，请先[部署 Workers][workers]，
-然后在 `df.py` 设置 workers/pages 的域名。
+有些网站域名不可用域前置，但可用 Workers/Pages 转发，请先[部署][workers]，
+然后在 `py文件` 设置域名。
 ```
-# file: df.py
-# cloudflare workers 域名和端口
-SERVER = "your-workers-domain.com"
+# cloudflare workers/pages 域名和端口
+SERVER = "your-domain.com"
 ```
 
-如果网站既能用域前置又能通过 Workers 转发，优先使用域前置。
+如果网站既能用域前置又能通过Workers/Pages转发，优先使用域前置。
 
 
 ## Contribute
 ---
-欢迎加入其他支持域前置的网站。只要修改 [hosts.source.txt][source] 即可。
-此文件的格式：
-```
-# 以 # 开头的是注释，以及空行会被忽略
-# 以 === 开头为网站名称
-# 以 -front 开头的行作为 domain fronting，星号开头的域名包含所有子域名
-# 以 -proxy 开头的行，域名可通过 cloudflare workers 转发，包含所有子域名
-
-=== 网站名称
--front sni域名 IP 端口 域名...
--proxy 域名...
-```
-
-类似
-```
-=== google
--front www.gstatic.cn 106.75.251.36 443 google.com *.google.com *.gstatic.com
--proxy googlevideo.com
-```
-每行的后面可以有多个域名。
-
-修改之后可自行执行 `bash build.sh` 生成文件：
-```
-df.py
-domain_fronting.json
-host_rules.md
-hosts.txt
-df-all.txt
-```
+欢迎加入其他支持域前置的网站，请看[hosts.source.txt][source]。
 
 
 ## Credit
@@ -101,10 +74,9 @@ df-all.txt
 [wiki-df]: https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%89%8D%E7%BD%AE
 [mitm]: https://github.com/mitmproxy/mitmproxy
 [mitm-dl]: https://mitmproxy.org/
-[df-py]: https://github.com/rabbit2123/domain-fronting/blob/main/df.py
 [rules]: https://github.com/rabbit2123/domain-fronting/blob/main/host_rules.md
 [source]: https://github.com/rabbit2123/domain-fronting/blob/main/hosts.source.txt
 [mitm-df]: https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/domain_fronting.py
 [workers]: https://github.com/rabbit2123/domain-fronting/tree/main/cloud/workers
-[df-all]: https://github.com/rabbit2123/domain-fronting/raw/main/df-all.txt
-
+[df-all]: https://github.com/rabbit2123/domain-fronting/blob/main/df.txt
+[df-link]: https://cf.rabbit2123.kozow.com/gh/domain-fronting/main/df.txt
